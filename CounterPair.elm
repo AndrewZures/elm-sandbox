@@ -33,16 +33,10 @@ update : Action -> Model -> Model
 update action model =
   case action of
     Reset -> init 0 0
-
     Top act ->
-      { topCounter = Counter.update act model.topCounter,
-        bottomCounter = model.bottomCounter
-      }
-
+      { model | topCounter <- Counter.update act model.topCounter }
     Bottom act ->
-      { topCounter = model.topCounter,
-        bottomCounter = Counter.update act model.bottomCounter
-      }
+      { model | bottomCounter <- Counter.update act model.bottomCounter }
 
 
 -- VIEW

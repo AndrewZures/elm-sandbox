@@ -828,7 +828,7 @@ Elm.Counter.make = function (_elm) {
             case "Increment":
             return model + 1;}
          _U.badCase($moduleName,
-         "between lines 23 and 28");
+         "between lines 23 and 25");
       }();
    });
    var Decrement = {ctor: "Decrement"};
@@ -917,21 +917,23 @@ Elm.CounterPair.make = function (_elm) {
    model) {
       return function () {
          switch (action.ctor)
-         {case "Bottom": return {_: {}
-                                ,bottomCounter: A2($Counter.update,
-                                action._0,
-                                model.bottomCounter)
-                                ,topCounter: model.topCounter};
+         {case "Bottom":
+            return _U.replace([["bottomCounter"
+                               ,A2($Counter.update,
+                               action._0,
+                               model.bottomCounter)]],
+              model);
             case "Reset": return A2(init,
               0,
               0);
-            case "Top": return {_: {}
-                               ,bottomCounter: model.bottomCounter
-                               ,topCounter: A2($Counter.update,
+            case "Top":
+            return _U.replace([["topCounter"
+                               ,A2($Counter.update,
                                action._0,
-                               model.topCounter)};}
+                               model.topCounter)]],
+              model);}
          _U.badCase($moduleName,
-         "between lines 34 and 45");
+         "between lines 34 and 39");
       }();
    });
    var Model = F2(function (a,b) {
