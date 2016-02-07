@@ -828,7 +828,7 @@ Elm.Counter.make = function (_elm) {
             case "Increment":
             return model + 1;}
          _U.badCase($moduleName,
-         "between lines 24 and 29");
+         "between lines 23 and 28");
       }();
    });
    var Decrement = {ctor: "Decrement"};
